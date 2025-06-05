@@ -1,0 +1,17 @@
+.header{
+    background-color: rgb(224, 224, 224);
+    height: 100px;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+.px20{
+    font-size: 20px;
+}
+
+li{
+     font-size: 15px;
+}
+h1{
+    font-size: 30px;
+}
