@@ -5,19 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>おぼえがき</title>
     <link rel="stylesheet" href="./style.css">
+    <style>
+        #content {
+            display: none;
+        }
+        .password-box {
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
+
+<!-- パスワード入力画面 -->
+<div id="password-section" class="password-box">
+    <h2>パスワードを入力してください</h2>
+    <input type="password" id="password" placeholder="パスワードを入力">
+    <button onclick="checkPassword()">送信</button>
+</div>
+
+<!-- 本文（パスワードが正しければ表示） -->
+<div id="content">
     <section>
         <div class="header">
             <h1>HTML-CSS</h1>
         </div>
         <section>
-            <!--・headの中身は定型分のようなもの-->
             <ul>
                 <li>
                     <span class="px20">headの中身は定型分のようなもの</span>
                     <div class="head">
-
                         <p>①文字コードの指定(文字化けを防ぐため)</p>
                         <p>&lt;meta charset="utf-8"&gt;(htmlで推奨)</p>
                         <p>②ページのタイトルの設定(ブラウザのタブ上に現れるもの)</p>
@@ -25,26 +42,41 @@
                         <p>③CSSの読み込みなどを行う(htmlからcssを読み込む)</p>
                         <p>&lt;link rel="stylesheet"&gt;(cssファイルを読み込む宣言)</p>
                         <p>&lt;href="stylesheet.css"&gt;(ファイル指定)</p>
-
                     </div>
                 </li>
-            <!--・タイトル-->
                 <li>
                     <span class="px20">タイトル（本文）</span>
-                        <p>&lt;h1,2~6&gt;</p>
+                    <p>&lt;h1,2~6&gt;</p>
                 </li>
-            <!--改行-->
                 <li>
                     <span class="px20">改行</span>
-                        <p>&lt;p&gt;</p>
+                    <p>&lt;p&gt;</p>
                 </li>
-            <!--リンク-->
                 <li>
                     <span class="px20">リンク</span>
-                        <p>&lt;a href&gt;</p>
+                    <p>&lt;a href&gt;</p>
                 </li>
             </ul>
         </section>
-    Let's go to <a href="https://www.google.co.jp/">Google!</a>
+        Let's go to <a href="https://www.google.co.jp/">Google!</a>
+    </section>
+</div>
+
+<!-- パスワード判定スクリプト -->
+<script>
+    const correctPassword = "aaa"; // ← 好きなパスワードに変えてOK
+
+    function checkPassword() {
+        const input = document.getElementById("password").value;
+        if (input === correctPassword) {
+            document.getElementById("password-section").style.display = "none";
+            document.getElementById("content").style.display = "block";
+        } else {
+            alert("パスワードが違います");
+        }
+    }
+</script>
+
 </body>
 </html>
+
